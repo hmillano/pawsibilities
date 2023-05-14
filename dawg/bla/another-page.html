@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pawsibilities</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="javascript.js"></script>
+  </head>
+  <body>
+    <div class="dropdown-container">
+      <select id="dog-breeds">
+        <option value="">Select a dog breed</option>
+        <option value="labrador">Labrador</option>
+        <option value="bulldog">Bulldog</option>
+        <option value="beagle">Beagle</option>
+        <option value="boxer">Boxer</option>
+        <option value="poodle">Poodle</option>
+        <option value="rottweiler">Rottweiler</option>
+        <option value="dachshund">Dachshund</option>
+        <option value="chihuahua">Chihuahua</option>
+        <option value="pug">Pug</option>
+        <option value="pomeranian">Pomeranian</option>
+      </select>
+    </div>
+    <div class="dropdown-container">
+      <select id="dog-gender">
+        <option value="">Select a dog gender</option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+      </select>
+    </div>
+    <button id="waggers" onclick="getJoke()">
+      <span id="tail">Tail Waggers</span>
+    </button>
+    <span id="dogPun"></span>
+    <div id="matchMessage">
+      <h2>It's a match!</h2>
+      <button onclick="next()">Arrange a meeting</button>
+    </div>
+    <div class="box">
+      <div class="container">
+        <span id="dogName"></span>
+        <div class="dog-image-container">
+          <img
+            src=""
+            alt="Cute dog"
+            id="dog-image"
+            height="400px"
+            width="315  px"
+          />
+        </div>
+        <span id="Age"></span>
+        <div class="actions">
+          <button class="dislike-button">
+            <img src="paw-image.png" alt="Paw" />
+          </button>
+          <button class="like-button" id="clickButton">
+            <img src="paw-image.png" alt="Paw" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      function next() {
+        window.location.href = "../kiko2/mapaAPI.html";
+      }
+      let button = document.getElementById("clickButton");
+      let matchMessage = document.getElementById("matchMessage");
+
+      let randomNumber = Math.floor(Math.random() * 10) + 1;
+      let clickCount = 0;
+
+      button.onclick = function () {
+        clickCount++;
+
+        if (clickCount === randomNumber) {
+          matchMessage.style.opacity = 1;
+          clickCount = 0;
+          randomNumber = Math.floor(Math.random() * 10) + 1;
+        } else {
+          matchMessage.style.opacity = 0;
+        }
+      };
+      async function getJoke() {
+        const response = await fetch(
+          "https://v2.jokeapi.dev/joke/Any?contains=dog"
+        );
+        const jokeData = await response.json();
+        let joke = "";
+        if (jokeData.type === "single") {
+          joke = jokeData.joke;
+        } else {
+          joke = jokeData.setup + " " + jokeData.delivery;
+        }
+        document.getElementById("dogPun").textContent = joke;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.star {
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.yellow {
+    color: yellow;
+}

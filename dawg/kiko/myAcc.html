@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog Profile</title>
+    <link rel="stylesheet" type="text/css" href="styleAcc.css" />
+  </head>
+  <style>
+    body {
+      background-image: url("https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="https://media.discordapp.net/attachments/962279042361479198/1107229932452577380/my_account_transparent.png?width=1237&height=610"
+        alt="Your Logo"
+      />
+    </header>
+    <div class="container">
+      <div class="circle">
+        <img
+          src="https://images.unsplash.com/photo-1582456891925-a53965520520?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG9tZXJhbmlhbnxlbnwwfHwwfHw%3D&w=1000&q=80"
+          alt="Dog"
+        />
+      </div>
+      <h3 id="dogName">Dog Name</h3>
+      <ul>
+        <li>
+          <span>Playfulness</span>
+          <span class="rating">
+            <i class="star">&#9733;</i>
+            <i class="star">&#9733;</i>
+            <i class="star">&#9733;</i>
+            <i class="star gray">&#9733;</i>
+            <i class="star gray">&#9733;</i>
+          </span>
+        </li>
+        <li>
+          <span>Barking</span>
+          <span class="rating">
+            <i class="star">&#9733;</i>
+            <i class="star">&#9733;</i>
+            <i class="star gray">&#9733;</i>
+            <i class="star gray">&#9733;</i>
+            <i class="star gray">&#9733;</i>
+          </span>
+        </li>
+        <li>
+          <span>Energy</span>
+          <span class="rating">
+            <i class="star">&#9733;</i>
+            <i class="star">&#9733;</i>
+            <i class="star">&#9733;</i>
+            <i class="star">&#9733;</i>
+            <i class="star gray">&#9733;</i>
+          </span>
+        </li>
+        <li>
+          <span>Likes people</span>
+          <span class="rating">
+            <i class="star">&#9733;</i>
+            <i class="star">&#9733;</i>
+            <i class="star">&#9733;</i>
+            <i class="star">&#9733;</i>
+            <i class="star gray">&#9733;</i>
+          </span>
+        </li>
+      </ul>
+
+      <button type="button" class="tinder" onclick="navigate()">
+        <span>Playdate</span>
+      </button>
+      <button type="button" class="tinder" onclick="navigate1()">
+        <span>Find a match</span>
+      </button>
+      <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text" onclick="navigate2()">Rate the date</span>
+      </button>
+    </div>
+    <script src="./script.js"></script>
+    <script>
+      document.getElementById("dogName").innerHTML =
+        localStorage.getItem("myValue");
+      if (localStorage.getItem("myValue") === "") getRandomDog();
+      async function getRandomDog() {
+        try {
+          const nameResponse = await fetch("https://randomuser.me/api/");
+          const nameData = await nameResponse.json();
+          const name = nameData.results[0].name.first;
+          document.getElementById("dogName").textContent = name;
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      function navigate1() {
+        localStorage.setItem(
+          "myValue",
+          document.getElementById("dogName").textContent
+        );
+        window.location.href = "../bla/another-page.html";
+      }
+      function navigate() {
+        localStorage.setItem(
+          "myValue",
+          document.getElementById("dogName").textContent
+        );
+        window.location.href = "../GPT/index.html";
+      }
+      function navigate2() {
+        localStorage.setItem(
+          "myValue",
+          document.getElementById("dogName").textContent
+        );
+        window.location.href = "../rating/index.html";
+      }
+    </script>
+  </body>
+</html>

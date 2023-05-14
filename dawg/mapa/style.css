@@ -1,0 +1,88 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.form-control {
+  position: relative;
+  margin-top: 20px;
+  width: 190px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+  transform: translateY(-30px);
+}
+
+#map {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#prasalnik {
+  opacity: 0;
+  transition: opacity 1s;
+  height: 100%;
+}
+button {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+#timeInput, #dateInput {
+  padding: 0.8em 1.9em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  outline: none;
+}

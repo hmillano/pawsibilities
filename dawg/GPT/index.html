@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-image: url("https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+    <title>Dog Tinder</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2 class="name"></h2>
+        <div class="img-container">
+          <img src="" alt="Dog" class="dog-img" />
+        </div>
+        <p class="breed"></p>
+        <div id="playfulness">
+          Playfulness:
+          <span class="stars"
+            ><span class="star">★</span><span class="star">★</span
+            ><span class="star">★</span><span class="star">★</span
+            ><span class="star">★</span></span
+          >
+        </div>
+        <div id="likes-people">
+          Likes People:
+          <span class="stars"
+            ><span class="star">★</span><span class="star">★</span
+            ><span class="star">★</span><span class="star">★</span
+            ><span class="star">★</span></span
+          >
+        </div>
+        <div id="energy">
+          Energy:
+          <span class="stars"
+            ><span class="star">★</span><span class="star">★</span
+            ><span class="star">★</span><span class="star">★</span
+            ><span class="star">★</span></span
+          >
+        </div>
+        <div id="barking">
+          Barking:
+          <span class="stars"
+            ><span class="star">★</span><span class="star">★</span
+            ><span class="star">★</span><span class="star">★</span
+            ><span class="star">★</span></span
+          >
+        </div>
+        <br />
+        <div class="buttons">
+          <button class="play-btn" onclick="play()">Play</button>
+          <button onclick="colorAllStars()" class="next-btn">Next</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+      function play() {
+        window.location.href = "../kiko2/mapaAPI.html";
+      }
+    </script>
+  </body>
+</html>

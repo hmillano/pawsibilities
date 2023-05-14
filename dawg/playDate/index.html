@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adjective Rating</title>
+    <style>
+      .star {
+        font-size: 2rem;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Adjective Rating</h1>
+      <p>Click on the button to give rating to the adjectives.</p>
+      <ul>
+        <li id="adjective1">
+          Beautiful: <span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span>
+        </li>
+        <li id="adjective2">
+          Amazing: <span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span>
+        </li>
+        <li id="adjective3">
+          Intelligent: <span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span>
+        </li>
+        <li id="adjective4">
+          Charming: <span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span>
+        </li>
+        <li id="adjective5">
+          Creative: <span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span
+          ><span class="star">&#9734;</span><span class="star">&#9734;</span>
+        </li>
+      </ul>
+      <button onclick="giveRating()">Give Random Rating</button>
+    </div>
+    <script>
+      function giveRating() {
+        const adjectives = [
+          document.getElementById("adjective1"),
+          document.getElementById("adjective2"),
+          document.getElementById("adjective3"),
+          document.getElementById("adjective4"),
+          document.getElementById("adjective5"),
+        ];
+
+        // Clear all ratings
+        adjectives.forEach((adj) => {
+          adj.querySelectorAll(".star").forEach((star) => {
+            star.innerHTML = "&#9734;";
+          });
+        });
+
+        // Randomly select adjectives to rate
+        const numOfAdjToRate =
+          Math.floor(Math.random() * (adjectives.length - 1)) + 1;
+        const adjToRate = [];
+
+        for (let i = 0; i < numOfAdjToRate; i++) {
+          let adj;
+          do {
+            adj = adjectives[Math.floor(Math.random() * adjectives.length)];
+          } while (adjToRate.includes(adj));
+          adjToRate.push(adj);
+        }
+
+        adjToRate.forEach((adj) => {
+          const rating = Math.floor(Math.random() * 5) + 1;
+          const star = adj.querySelectorAll(".star");
+          for (let i = 0; i < rating; i++) {
+            star[i].innerHTML = "&#9733;";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

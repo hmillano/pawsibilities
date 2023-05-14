@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Modern Flat Design Login Form Example</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      background-image: url('https://www.rd.com/wp-content/uploads/2021/03/GettyImages-1133605325-scaled-e1617227898456.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+		<img class="logo" src="https://media.discordapp.net/attachments/988006699975708723/1107153124877144114/logo_transparen111t.png?width=1237&height=610" alt="Your Logo">
+	</header>
+    
+      <div class="login-page" >
+        <div class="form">
+          <form class="register-form">
+            <input id="dogName" type="text" placeholder="Dog name"/>
+            <input type="text" placeholder="Breed"/>
+            <input type="date" id="selectedDate" oninput="displayDate()" placeholder="Birth date">
+            <input type="text" placeholder="Gender"/>
+            <input type="text" placeholder="Email"/>
+            <input type="text" placeholder="Password"/>
+            <input type="text" placeholder="Confirm password"/>
+
+            <button  type="button"class="cssbuttons-io-button" onclick="navigateToURL1()"> Create
+                <div class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
+                </div>
+              </button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+          </form>
+          <form class="login-form">
+            <input id="nnname" type="text" placeholder="Username"/>
+            <input type="password" placeholder="Password"/>
+            <button class="cssbuttons-io-button" type="button" onclick ="navigateToURL2();"> Login
+                <div class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
+                </div>
+              </button>
+            <!-- <button>login</button> -->
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+          </form> 
+        </div>
+      </div>
+    </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+  <script>
+    function navigateToURL1() {
+        localStorage.setItem("myValue", document.getElementById("dogName").value);
+        window.location.href = 'myAcc.html';
+    }
+    function navigateToURL2() {
+        localStorage.setItem("myValue", document.getElementById("nnname").textContent);
+        window.location.href = 'myAcc.html';
+    }
+  </script>
+</body>
+</html>
